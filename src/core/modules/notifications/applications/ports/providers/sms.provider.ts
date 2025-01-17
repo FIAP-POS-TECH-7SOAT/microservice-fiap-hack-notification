@@ -3,5 +3,5 @@ export type SMSSendProps = {
   message: string;
 };
 export abstract class SMSProvider {
-  abstract send(key: SMSSendProps): Promise<void>;
+  abstract send(key: SMSSendProps): Promise<boolean>;
 }

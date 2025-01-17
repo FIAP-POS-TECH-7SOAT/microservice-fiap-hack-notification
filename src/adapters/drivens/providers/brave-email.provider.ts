@@ -20,22 +20,30 @@ export class BraveEmailProvider implements EmailProvider {
         pass: this.env.get('BRAVE_EMAIL_PASS'),
       },
     });
+    console.log('Configuração do transporter:', this.transporter);
   }
-  async send({ to, subject, html, text }: EmailProviderProps): Promise<void> {
+  async send({
+    to,
+    subject,
+    html,
+    text,
+  }: EmailProviderProps): Promise<boolean> {
     const mailOptions = {
       to,
-      from: this.env.get('BRAVE_EMAIL_TO'),
+      from: this.env.get('BRAVE_EMAIL_FROM'),
       subject,
       text,
       html,
     };
-
-    this.transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        throw new Error(error.message);
-      } else {
-        console.log('Email enviado: ' + info.response);
-      }
+    return new Promise((resolve, reject) => {
+      this.transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          reject(new Error(error.message));
+        } else {
+          console.log('Email enviado: ' + info.response);
+          resolve(true);
+        }
+      });
     });
   }
 }

@@ -5,5 +5,5 @@ export type EmailProviderProps = {
   html: string;
 };
 export abstract class EmailProvider {
-  abstract send(data: EmailProviderProps): Promise<void>;
+  abstract send(data: EmailProviderProps): Promise<boolean>;
 }
