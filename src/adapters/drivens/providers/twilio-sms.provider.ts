@@ -17,13 +17,13 @@ export class TwilioSMSProvider implements SMSProvider {
     const authToken = this.env.get('TWILIO_AUTH_TOKEN');
     this.client = twilio(accountSid, authToken);
   }
-  async send({ message, phone }: SMSSendProps): Promise<void> {
-    this.client.messages
-      .create({
-        from: this.env.get('TWILIO_PHONE_NUMBER'),
-        to: phone.replace(/\D/g, ''),
-        body: message,
-      })
-      .then((message) => console.log(message.sid));
+  async send({ message, phone }: SMSSendProps): Promise<boolean> {
+    await this.client.messages.create({
+      from: this.env.get('TWILIO_PHONE_NUMBER'),
+      to: phone.replace(/\D/g, ''),
+      body: message,
+    });
+
+    return true;
   }
 }

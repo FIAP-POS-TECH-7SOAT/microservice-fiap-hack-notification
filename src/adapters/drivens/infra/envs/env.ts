@@ -11,7 +11,7 @@ export const schemaEnv = z.object({
   BRAVE_EMAIL_PORT: z.string(),
   BRAVE_EMAIL_USER: z.string(),
   BRAVE_EMAIL_PASS: z.string(),
-  BRAVE_EMAIL_TO: z.string(),
+  BRAVE_EMAIL_FROM: z.string(),
   // AMQP_QUEUE: z.string(),
   AMQP_QUEUES: z.object({
     SMS_QUEUE: z.string(),

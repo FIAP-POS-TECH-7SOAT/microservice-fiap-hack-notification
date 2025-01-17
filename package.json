@@ -18,9 +18,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./jest-e2e.json",
-    "test:e2e:cov": "jest --config ./jest-e2e.json --coverage"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"    
   },
   "dependencies": {
     "@faker-js/faker": "^9.1.0",
@@ -38,7 +36,6 @@
     "nodemailer": "^6.9.16",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    
     "twilio": "^5.4.2",
     "zod": "^3.23.8",
     "zod-validation-error": "^3.4.0"
