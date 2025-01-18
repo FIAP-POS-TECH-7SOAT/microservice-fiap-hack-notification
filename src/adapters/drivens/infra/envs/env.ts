@@ -14,15 +14,12 @@ export const schemaEnv = z.object({
   BRAVE_EMAIL_FROM: z.string(),
   // AMQP_QUEUE: z.string(),
   AMQP_QUEUES: z.object({
-    SMS_QUEUE: z.string(),
-    EMAIL_QUEUE: z.string(),
-  }),
-  AMQP_ROUTING_KEY: z.object({
-    SMS_QUEUE: z.string(),
-    EMAIL_QUEUE: z.string(),
+    NOTIFICATION_QUEUE: z.object({
+      name: z.string(),
+      routing_keys: z.array(z.string()),
+    }),
   }),
   AMQP_URL: z.string(),
-  // AMQP_ROUTING_KEY: z.string(),
 });
 
 export type Env = z.infer<typeof schemaEnv>;

@@ -20,7 +20,6 @@ export class BraveEmailProvider implements EmailProvider {
         pass: this.env.get('BRAVE_EMAIL_PASS'),
       },
     });
-    console.log('Configuração do transporter:', this.transporter);
   }
   async send({
     to,
