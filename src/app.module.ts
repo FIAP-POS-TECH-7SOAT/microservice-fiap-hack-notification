@@ -16,7 +16,6 @@ import { RMQModule } from '@adapters/drivers/rmq/rmq.module';
     ConfigModule.forRoot({
       validate: (env) => {
         env.AMQP_QUEUES = JSON.parse(env.AMQP_QUEUES);
-        env.AMQP_ROUTING_KEY = JSON.parse(env.AMQP_ROUTING_KEY);
         return schemaEnv.parse(env);
       },
       isGlobal: true,

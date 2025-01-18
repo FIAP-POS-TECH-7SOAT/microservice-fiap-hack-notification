@@ -23,10 +23,12 @@ export class RMQModule {
       const exchange = 'amq.direct';
       const queues = this.env.get('AMQP_QUEUES');
       const queuesKey = Object.keys(queues);
+
       const allPromises: any[] = [];
+
       queuesKey.forEach((queueKey) => {
-        const queue = queues[queueKey];
-        const routingKeys = this.env.get('AMQP_ROUTING_KEY');
+        const queue = queues[queueKey].name;
+        const routingKeys = queues[queueKey].routing_keys;
         // Declare a exchange do tipo `direct`
         allPromises.push(
           channel.assertExchange(exchange, 'direct', { durable: true }),
@@ -34,9 +36,9 @@ export class RMQModule {
         // Declare a fila
         allPromises.push(channel.assertQueue(queue, { durable: false }));
         // Bind da fila à exchange com a routing key
-        allPromises.push(
-          channel.bindQueue(queue, exchange, routingKeys[queueKey]),
-        );
+        routingKeys.forEach((routingKey: string) => {
+          allPromises.push(channel.bindQueue(queue, exchange, routingKey));
+        });
       });
       await Promise.all(allPromises);
       await channel.close();
