@@ -21,5 +21,6 @@ async function bootstrap() {
   });
 
   await app.startAllMicroservices();
+  app.listen(envService.get('PORT'));
 }
 bootstrap();
