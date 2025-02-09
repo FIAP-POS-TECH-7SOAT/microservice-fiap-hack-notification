@@ -47,30 +47,16 @@ $ npm run start:prod
 
 ## Run tests
 
-```bash
-# unit tests
-$ npm run test
 
-#  test coverage
+```bash
+
+
+# unit test coverage
 $ npm run test:cov
 
-```
-![image](https://github.com/user-attachments/assets/46a72da4-4d2e-4268-af15-b9c9e0a33890)
-
-
-```bash
-# e2e tests
-$ npm run test:e2e
-
-
-# e2e BDD test coverage
-$ npm run test:bdd:cov
-
 
 ```
-![image](https://github.com/user-attachments/assets/f8d2d65a-d4db-4823-a7b0-264c6635aceb)
-![image](https://github.com/user-attachments/assets/2e8e5eba-7b57-4ed2-9cda-5604aa7ba910)
-![image](https://github.com/user-attachments/assets/ea4ee259-5efa-4668-83fd-938ffce2d4c9)
+![image](https://github.com/user-attachments/assets/465cca4f-d08e-4cd5-a3cb-48dcdb50a22e)
 
 
 
